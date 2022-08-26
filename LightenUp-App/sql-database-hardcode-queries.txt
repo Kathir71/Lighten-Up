@@ -1,0 +1,388 @@
+CREATE DATABASE quick_quiz;
+//go to quick_quiz in phpmyadmin
+CREATE TABLE quiz_list(
+    quiz_id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    quiz_name VARCHAR(255) NOT NULL,
+    author_name VARCHAR(255) NOT NULL,
+    quiz_description VARCHAR(255) NOT NULL
+); CREATE TABLE question_table(
+    quiz_id INT(11) NOT NULL,
+    quiz_name VARCHAR(255) NOT NULL,
+    question_id INT(11) NOT NULL,
+    question VARCHAR(255) NOT NULL,
+    option_a VARCHAR(255) NOT NULL,
+    option_b VARCHAR(255) NOT NULL,
+    option_c VARCHAR(255) NOT NULL,
+    option_d VARCHAR(255) NOT NULL,
+    score INT(11) NOT NULL
+); CREATE TABLE answer_table(
+    quiz_id INT(11) NOT NULL,
+    quiz_name VARCHAR(255) NOT NULL,
+    question_id INT(11) NOT NULL,
+    correct_option INT(11) NOT NULL
+); CREATE TABLE user_input(
+    quiz_id INT(11) NOT NULL,
+    quiz_name VARCHAR(255) NOT NULL,
+    question_id INT(11) NOT NULL,
+    user_answer INT(11)
+);
+
+***************************************************
+
+INSERT INTO quiz_list(
+    quiz_name,
+    author_name,
+    quiz_description
+)
+VALUES(
+    'National Freedom Fighters',
+    'Krithika Priya',
+    'A quiz on the great personalities who sacrificed their lives selflessly FOR Indian Independance'
+),(
+    'College of Engineering Guindy',
+    'Ashwin Muthuraman',
+    'A quiz on the oldest technical institute of Asia - College of Engineering Guindy - CEG'
+),(
+    'Javascript and PHP',
+    'Kathir',
+    'A quiz on the basics of Javascript and PHP languages'
+);
+
+INSERT INTO question_table
+VALUES(
+    1,
+    'National Freedom Fighters',
+    1,
+    'Who gave the slogan “Dhilli Chalo” or “March to Delhi”?',
+    'Bhagat Singh',
+    'Chandra Babu',
+    'Mahatma Gandhi',
+    'Subas Chandra Bose',
+    2
+),(
+    1,
+    'National Freedom Fighters',
+    2,
+    'Who among the following freedom fighters were known as Grand Old Man of Indian politics?',
+    'Bipin Chandra Pal',
+    'Surendra Nath Bannerjee',
+    'Dadabhai Naoroji',
+    'Rasbehari Bose',
+    2
+),(
+    1,
+    'National Freedom Fighters',
+    3,
+    'Who was one of the main organizers of the Dharasana Satyagraha in 1931, which was a non-violent raid on Dharasana Salt Works?',
+    'Abul Kalam Azad',
+    'Lokmanya Tilak',
+    'Madan M Malaviya',
+    'C Rajagopalachari',
+    3
+),(
+    1,
+    'National Freedom Fighters',
+    4,
+    'Whose death coincided with the launch of the Non-cooperation Movement in 1920?',
+    'Dadabhai Naoroji',
+    'GK Gokhale',
+    'Lokmanya Tilak',
+    'Motilal Nehru',
+    2
+),(
+    1,
+    'National Freedom Fighters',
+    5,
+    'Who among the following freedom fighters were known as Grand Old Lady of Indian Independance?',
+    'Sucheta Kripalani',
+    'Arunba Asaf Ali',
+    'Matangini Hazra',
+    'Usha Mehta',
+    4
+),(
+    1,
+    'National Freedom Fighters',
+    6,
+    'Who is the founder of swadeshi steam navigation company?',
+    'V O Chidambaram Pillai',
+    'Bala Gangadhar Tilak ',
+    'Vanjinathan',
+    'P Rangaiah Naidu',
+    3
+),(
+    1,
+    'National Freedom Fighters',
+    7,
+    'Who was the first Indian queen to wage war with the East India Company in India?',
+    'Rani Avanti Bai',
+    'Kittur Rani Chennamma',
+    'Rani Lakshmi Bai',
+    'Rani Velu Nachiyar',
+    4
+);
+
+
+INSERT INTO answer_table
+VALUES(
+    1,
+    'National Freedom Fighters',
+    1,
+    4
+),(
+    1,
+    'National Freedom Fighters',
+    2,
+    3
+),(
+    1,
+    'National Freedom Fighters',
+    3,
+    1
+),(
+    1,
+    'National Freedom Fighters',
+    4,
+    3
+),(
+    1,
+    'National Freedom Fighters',
+    5,
+    2
+),(
+    1,
+    'National Freedom Fighters',
+    6,
+    1
+),(
+    1,
+    'National Freedom Fighters',
+    7,
+    4
+);
+
+INSERT INTO user_input
+VALUES(
+    1,
+    'National Freedom Fighters',
+    1,
+    0
+),(
+    1,
+    'National Freedom Fighters',
+    2,
+    0
+),(
+    1,
+    'National Freedom Fighters',
+    3,
+    0
+),(
+    1,
+    'National Freedom Fighters',
+    4,
+    0
+),(
+    1,
+    'National Freedom Fighters',
+    5,
+    0
+),(
+    1,
+    'National Freedom Fighters',
+    6,
+    0
+),(
+    1,
+    'National Freedom Fighters',
+    7,
+    0
+);
+
+
+INSERT INTO question_table
+VALUES(
+    2,
+    'College of Engineering Guindy',
+    1,
+    'When was ‘The School of Survey’ (later renamed as College of Engineering Guindy) established?',
+    'June, 1794',
+    'May, 1894',
+    'May, 1794',
+    'June, 1894',
+    3
+),(
+    2,
+    'College of Engineering Guindy',
+    2,
+    'How many acres of land does CEG spreads over right in the heart of Chennai?',
+    '223 acres',
+    '227 acres',
+    '154 acres',
+    '187 acres',
+    2
+),(
+    2,
+    'College of Engineering Guindy',
+    3,
+    'What is the theme of CEG Hostel names?',
+    'Fruits',
+    'Flowers',
+    'Colours',
+    'Rivers',
+    2
+),(
+    2,
+    'College of Engineering Guindy',
+    4,
+    'Which of the following phrases would be written on CEG’s LOGO?',
+    'Labor ipse Voluptas',
+    'Lux mentis Lux orbis',
+    'Luceat Lux Vestra',
+    'Labor Omnia Vincit',
+    2
+),(
+    2,
+    'College of Engineering Guindy',
+    5,
+    'In which year a stamp dedicated to the 200th anniversary of CEG released?',
+    '1984',
+    '1989',
+    '1994',
+    '1999',
+    3
+),(
+    2,
+    'College of Engineering Guindy',
+    6,
+    'Who is the founder of CEG?',
+    'Michael Topping',
+    'John Goldingham',
+    'Alexander Dalrymple',
+    'William Lambton',
+    3
+);
+
+INSERT INTO answer_table
+VALUES(
+    2,
+    'College of Engineering Guindy',
+    1,
+    3
+),(
+    2,
+    'College of Engineering Guindy',
+    2,
+    1
+),(
+    2,
+    'College of Engineering Guindy',
+    3,
+    2
+),(
+    2,
+    'College of Engineering Guindy',
+    4,
+    4
+),(
+    2,
+    'College of Engineering Guindy',
+    5,
+    3
+),(
+    2,
+    'College of Engineering Guindy',
+    6,
+    1
+);
+
+INSERT INTO user_input
+VALUES(
+    2,
+    'College of Engineering Guindy',
+    1,
+    0
+),(
+    2,
+    'College of Engineering Guindy',
+    2,
+    0
+),(
+    2,
+    'College of Engineering Guindy',
+    3,
+    0
+),(
+    2,
+    'College of Engineering Guindy',
+    4,
+    0
+),(
+    2,
+    'College of Engineering Guindy',
+    5,
+    0
+),(
+    2,
+    'College of Engineering Guindy',
+    6,
+    0
+);
+
+INSERT INTO question_table
+VALUES(
+    3,
+    'Javascript and PHP',
+    1,
+    'Which is the correct way to select a HTML element with id=’demo’?',
+    'document.getElementByID(‘#demo’);',
+    ' document.getElementByID(‘demo’);',
+    'document.querySelector(‘#demo’);',
+    'Both option 2 and option 3',
+    4
+),(
+    3,
+    'Javascript and PHP',
+    2,
+    'How to change the background colour of an element with id=’bg’?',
+    'document.getElementByID(‘bg’).css.backgroundColor = ‘red’;',
+    'document.getElementByID(‘bg’).style.background-color = ‘red’;',
+    'document.getElementByID(‘bg’).style.backgroundColor = ‘red’;',
+    'Both option 2 and option 3',
+    4
+),(
+    3,
+    'Javascript and PHP',
+    3,
+    'What does PHP stand for?',
+    'Private Home Page',
+    'Personal Hypertext Preprocessor',
+    'PHP: Hypertext Preprocessor',
+    'Private Hypertext Preprocessor',
+    4
+),(
+    3,
+    'Javascript and PHP',
+    4,
+    'Which operator is used to check if two values are equal and of same data type?',
+    '!=',
+    '===',
+    '==',
+    '=',
+    3
+),(
+    3,
+    'Javascript and PHP',
+    5,
+    'How do you create an array in PHP?',
+    '$UD = array(“CEG”, ”ACT”, ”SAP”, ”MIT");',
+    '$UD = “CEG”, ”ACT”, ”SAP”, ”MIT”;',
+    '$UD = array[“CEG”, ”ACT”, ”SAP”, ”MIT”];',
+    '$UD = array{“CEG”, ”ACT”, ”SAP”, ”MIT”};',
+    3
+);
+
+INSERT INTO answer_table
+VALUES(3, 'Javascript and PHP', 1, 4),(3, 'Javascript and PHP', 2, 3),(3, 'Javascript and PHP', 3, 3),(3, 'Javascript and PHP', 4, 2),(3, 'Javascript and PHP', 5, 1);
+
+INSERT INTO user_input
+VALUES(3, 'Javascript and PHP', 1, 0),(3, 'Javascript and PHP', 2, 0),(3, 'Javascript and PHP', 3, 0),(3, 'Javascript and PHP', 4, 0),(3, 'Javascript and PHP', 5, 0);
